@@ -25,7 +25,7 @@ export const H1 = styled.h1 `
 export const P = styled.p `
   align-self: flex-start;
   color: white;
-  margin: 0 0 5px 60px;
+  margin: 0 0 5px 55px;
 `
 
 export const Input = styled.input `

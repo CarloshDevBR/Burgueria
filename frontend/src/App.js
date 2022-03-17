@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 
 import { Container, Logo, H1, P, Input, Button, Ul, Li, BoxP, Img } from './styles.js';
+import axios from 'axios'
 
 import LogoImg from './assets/logo.png'
 import Trash from './assets/trash.svg'
@@ -10,19 +11,31 @@ function App() {
   const Request = useRef()
   const Name = useState()
   
-  function addNewRequest() {
-    const newRequest = { id: Math.random(), request: Request.current.value, name: Name.current.value}
+  async function addNewRequest() {
+    const { data: newRequest } = await axios.post("http://localhost:3001/requests", { id: Math.random(), order: Request.current.value, name: Name.current.value })
     
     setRequest([...request, newRequest])
   }
   
-  function deleteRequest(id) {
+  async function deleteRequest(id) {
+    await axios.delete(`http://localhost:3001/requests/:${id}`)
+    
     const filteredRequests = request.filter( item => {
       return item.id !== id
     })
     
     setRequest(filteredRequests)
   }
+  
+  useEffect(() => {
+    async function loadData() {
+    const { data } = await axios.get("http://localhost:3001/requests/")
+    
+    setRequest(data)
+  }
+  
+  loadData()
+  },[])
   
   return (
     <Container>
@@ -31,10 +44,10 @@ function App() {
       <H1>Faça seu pedido!</H1>
       
       <P>Pedido</P>
-      <Input ref={Request} type="text" />
+      <Input ref={Request} type="text" placeholder="Seu pedido aqui!" />
       
       <P>Nome do cliente</P>
-      <Input ref={Name} type="text" />
+      <Input ref={Name} type="text" placeholder="Seu nome aqui!" />
       
       <Button onClick={addNewRequest}>Novo pedido</Button>
       
