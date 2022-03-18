@@ -25,6 +25,10 @@ export const BoxP = styled.div `
   gap: 15px;
 `
 
+export const P = styled.p `
+  ${ props => props.color ? "color: rgba(255,255,255, .7)" : "color: #FFFFFF"}
+`
+
 export const Img = styled.img `
   width: 20px;
 `
