@@ -1,6 +1,8 @@
 import React, { useState, useRef } from 'react'
 import { Container, Logo } from './styles.js';
 
+import { useNavigate } from 'react-router-dom'
+
 import axios from 'axios'
 
 import LogoImg from '../../assets/logo.png'
@@ -13,11 +15,14 @@ function Home() {
   const [ request, setRequest ] = useState([])
   const Request = useRef()
   const Name = useRef()
+  const navigate = useNavigate()
   
   async function addNewRequest() {
     const { data: newRequest } = await axios.post("http://localhost:3001/requests", { id: Math.random(), order: Request.current.value, name: Name.current.value })
     
     setRequest([...request, newRequest])
+    
+    navigate("/requests")
   }
   
   return (
@@ -28,7 +33,7 @@ function Home() {
       
       <Inputs Request={Request} Name={Name} />
       
-      <Button add={addNewRequest}>Pedir agora</Button>
+      <Button onClick={addNewRequest}>Pedir agora</Button>
     </Container>
   );
 }

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Container, Logo } from './styles.js';
 
+import { useNavigate } from 'react-router-dom'
+
 import axios from 'axios'
 
 import LogoImg from '../../assets/burger.png'
@@ -11,6 +13,11 @@ import { List } from '../../components/Ul'
 
 function Home() {
   const [ request, setRequest ] = useState([])
+  const navigate = useNavigate()
+  
+  function goBackPage() {
+    navigate("/")
+  }
   
   async function deleteRequest(id) {
     await axios.delete(`http://localhost:3001/requests/:${id}`)
@@ -40,7 +47,7 @@ function Home() {
       
       <List request={request} deleteItem={deleteRequest} />
       
-      <Button>Back</Button>
+      <Button onClick={goBackPage} >Back</Button>
     </Container>
   );
 }
