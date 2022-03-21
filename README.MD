@@ -39,7 +39,7 @@ $ git clone <https://github.com/CarloshDevBR/Burgueria-App>
 # access the project through the terminal/cmd
 $ cd Burgueria-App/frontend
 #run the project
-$ yarn or npm Register-user
+$ yarn or npm Burgueria-App
 #the server will initialize in the <http://localhost:3000>
 ```
 
