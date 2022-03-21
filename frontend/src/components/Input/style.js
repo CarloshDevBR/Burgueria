@@ -3,11 +3,11 @@ import styled from 'styled-components'
 export const P = styled.p `
   align-self: flex-start;
   color: #FFFFFF;
-  margin: 0 0 5px 55px;
+  margin: 0 0 5px 45px;
 `
 
 export const Input = styled.input `
-  width: 280px;
+  width: 85%;
   height: 45px;
   align-self: center;
   margin-bottom: 30px;
