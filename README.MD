@@ -13,7 +13,7 @@
 <p align="center">User can create and delete orders as desired</p>
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/92805039/158461838-65dc647a-82e3-4e3d-a0b2-08ba734660af.png" width="355px" />
+<img src="![20220321_180911](https://user-images.githubusercontent.com/92805039/159364634-6f8d8a0a-fce8-46b5-8fa9-61d986b7d4bc.gif)" width="355px" />
 </p>
 
 <br>
